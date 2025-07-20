@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
-import { TypingAnimation } from '@/components/TypingAnimation';
-import { ParticleBackground } from '@/components/Particles';
+import { TypingAnimation } from '@/components/TypingAnimation.jsx';
+import { ParticleBackground } from '@/components/Particles.jsx';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/profile-image.jpg';
 

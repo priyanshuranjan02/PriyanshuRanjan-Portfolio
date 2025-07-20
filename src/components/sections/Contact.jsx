@@ -7,12 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
-interface ContactForm {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 const contactInfo = [
   {
@@ -57,7 +51,7 @@ const socialLinks = [
 ];
 
 export function Contact() {
-  const [form, setForm] = useState<ContactForm>({
+  const [form, setForm] = useState({
     name: '',
     email: '',
     subject: '',
@@ -66,12 +60,12 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -179,7 +173,7 @@ export function Contact() {
                       className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300 group"
                       style={{ 
                         '--hover-color': social.color 
-                      } as React.CSSProperties}
+                      }}
                     >
                       <Icon 
                         className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors duration-300" 

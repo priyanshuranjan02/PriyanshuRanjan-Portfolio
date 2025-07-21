@@ -70,12 +70,7 @@ export function Navbar() {
             <motion.img
               src={profileImage}
               alt="Shrish"
-              className={`rounded-full object-cover border-2 border-primary transition-all duration-300 ${
-                isScrolled ? 'w-10 h-10' : 'w-12 h-12'
-              }`}
-              animate={{
-                scale: isScrolled ? 0.8 : 1,
-              }}
+              className="w-12 h-12 rounded-full object-cover border-2 border-primary"
             />
             <motion.span 
               className="text-xl font-bold font-montserrat text-gradient"

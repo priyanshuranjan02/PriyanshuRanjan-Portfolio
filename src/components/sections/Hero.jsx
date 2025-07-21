@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import { TypingAnimation } from '@/components/TypingAnimation.jsx';
-import { ParticleBackground } from '@/components/Particles.jsx';
+import Particles from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
+import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/profile-image.jpg';
 
@@ -13,9 +15,86 @@ const typingTexts = [
 ];
 
 export function Hero() {
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <ParticleBackground />
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "hsl(270, 95%, 75%)",
+            },
+            links: {
+              color: "hsl(270, 95%, 75%)",
+              distance: 150,
+              enable: true,
+              opacity: 0.3,
+              width: 1,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: false,
+              speed: 2,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "circle",
+            },
+            size: {
+              value: { min: 1, max: 5 },
+            },
+          },
+          detectRetina: true,
+        }}
+        className="absolute inset-0 -z-10"
+      />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
         {/* Profile Image */}

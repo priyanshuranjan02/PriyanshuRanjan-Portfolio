@@ -74,9 +74,6 @@ export function Navbar() {
             />
             <motion.span 
               className="text-xl font-bold font-montserrat text-gradient"
-              animate={{
-                fontSize: isScrolled ? '1.125rem' : '1.25rem'
-              }}
             >
               Shrish
             </motion.span>

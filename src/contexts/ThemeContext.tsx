@@ -1,9 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext(undefined);
+type Theme = 'dark' | 'light';
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark'); // Default to dark mode
+interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>('dark'); // Default to dark mode
 
   useEffect(() => {
     const root = window.document.documentElement;

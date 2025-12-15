@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import profileImage from '@/assets/profile-image.jpg';
+import profileImage from '@/assets/my-profileImage.png';
+import { ThemeToggle } from "@/components/ThemeToggle";
+
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -75,7 +77,7 @@ export function Navbar() {
             <motion.span 
               className="text-xl font-bold font-montserrat text-gradient"
             >
-              Shrish
+              Priyanshu Ranjan
             </motion.span>
           </motion.div>
 
@@ -121,6 +123,7 @@ export function Navbar() {
         </div>
       </div>
 
+      
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isMobileMenuOpen && (

@@ -3,27 +3,59 @@ import { Github, ExternalLink, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import careerMentorImage from "@/assets/CareerMentor-Logo.png";
+import swayamSaarthiImage from "@/assets/SwayamSaarthi-Logo.png";
+import moodifyImage from "@/assets/Moodify-Logo.png";
 
 const projects = [
   {
-    title: "Car & Gold Price Prediction Web App",
-    description: "A comprehensive full-stack web application that predicts car and gold prices based on user input. Features include user authentication, responsive design with loading animations, and a modern UI built with React and Tailwind CSS.",
-    technologies: ["React.js", "Supabase", "Tailwind CSS", "Machine Learning", "Authentication"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop"
+    title: "Moodify - Sentiment Analysis Web App",
+      type: "Full Stack AI Project",
+      duration: "Sept 2024 – Jan 2025",
+      description: "Developed a full-stack AI-powered sentiment analysis web application using Flask and a BERT-based NLP model with a modern interactive UI.",
+      features: [
+        "Implemented Transformer-based NLP (BERT) for accurate sentiment classification and batch CSV review analysis",
+        "Designed RESTful JSON APIs for seamless frontend–backend integration",
+        "Achieved high-confidence sentiment predictions with optimized inference performance"
+      ],
+      technologies: ["Python", "BERT", "NLP", "Flask", "React", "Firebase"],
+      status: "Completed",
+      image: moodifyImage,
+      githubUrl: "https://github.com/priyanshuranjan02/Moodify-WebApp"
   },
   {
-    title: "Sentiment Analysis ML App",
-    description: "An intelligent sentiment analysis application that classifies user reviews into 5 different sentiment categories. Built with Flask backend and BERT model for accurate sentiment classification, with support for bulk CSV uploads.",
-    technologies: ["Flask", "BERT", "Python", "HTML/CSS", "JavaScript", "Machine Learning"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    featured: false,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop"
+    title: "CareerMentor - AI Interview Mentor",
+      type: "Full Stack AI Project",
+      duration: "Jul 2025 – Ongoing",
+      description: "Developed a Full Stack AI interview preparation platform that personalizes mock interviews using resume-based role analysis and real-time interaction.",
+      features: [
+      "Implemented a resume upload workflow to customize interview questions based on the applicant’s job role",
+      "Designed a seamless multi-step interview flow with consistent UI/UX across components",
+      "Enabled real-time voice-based interaction and feedback for realistic interview simulation"
+    ],
+      technologies: ["React", "TypeScript", "Ollama", "OpenCV", "Supabase", "Speech & Voice APIs"],
+      status: "In Development",
+      image: careerMentorImage,
+      githubUrl: "https://github.com/priyanshuranjan02/Career-Mentor"
+  },
+  {
+    title: "Swayam Saarthi",
+      type: "Web-based On-Demand Service Platform",
+      duration: "December 2025 – Ongoing",
+      description: "A web-based on-demand driver assistance platform that connects vehicle owners with nearby verified drivers for personal cars, bikes, and autos, enabling safe and convenient travel without renting a vehicle.",
+      features: [
+        "Role-based access with separate User and Driver panels",
+        "On-demand driver booking using location-based services",
+        "Driver availability management and booking acceptance system",
+        "Admin dashboard for driver verification and booking monitoring"
+      ],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Google Maps API", "Firebase"],
+      status: "In Development",
+      image: swayamSaarthiImage,
+    githubUrl: "https://github.com/priyanshuranjan02/Swayam-Saarthi"
   }
 ];
+
 
 export function Projects() {
   return (
@@ -41,11 +73,11 @@ export function Projects() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my recent work in web development and machine learning
+            A showcase of my recent work in machine learning, data engineering, and modern web technologies.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -66,11 +98,17 @@ export function Projects() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   
-                  {project.featured && (
+                  {project.features && (
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-primary text-primary-foreground">
+                      {/* <Badge className="bg-primary text-primary-foreground">
                         <Star className="w-3 h-3 mr-1" />
                         Featured
+                      </Badge> */}
+                      <Badge 
+                        variant={project.status === "Completed" ? "default" : "secondary"}
+                        className="px-3 py-1"
+                      >
+                        {project.status}
                       </Badge>
                     </div>
                   )}
@@ -81,11 +119,35 @@ export function Projects() {
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
+                  
+                  {/* Type */}
+                  <p className="text-sm font-medium text-primary mb-1">
+                    {project.type}
+                  </p>
+
+                  {/* Duration */}
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {project.duration}
+                  </p>
 
                   {/* Project Description */}
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {project.description}
                   </p>
+                  {/* Key Features */}
+                  <div className="mb-4">
+                    <p className="font-semibold text-foreground mb-2">
+                      Key Features:
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {project.features.map((feature, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-primary">•</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -119,7 +181,11 @@ export function Projects() {
                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-purple transition-all duration-300"
                       asChild
                     >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </a>
@@ -144,7 +210,7 @@ export function Projects() {
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             asChild
           >
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/priyanshuranjan02?tab=repositories" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5 mr-2" />
               View All Projects on GitHub
             </a>

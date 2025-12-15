@@ -3,13 +3,14 @@ import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import { TypingAnimation } from '@/components/TypingAnimation';
 import { ParticleBackground } from '@/components/Particles';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/profile-image.jpg';
+import profileImage from '@/assets/my-profileImage.png';
+import resumePdf from "@/assets/Priyanshu Ranjan - Tech Resume.pdf";
 
 const typingTexts = [
+  'Aspiring Data Analyst',
   'ML Developer',
-  'Full-Stack Developer',
-  'Problem Solver',
-  'Trader'
+  'AWS Cloud',
+  'Problem Solver'
 ];
 
 export function Hero() {
@@ -32,7 +33,7 @@ export function Hero() {
           >
             <img
               src={profileImage}
-              alt="Shrish"
+              alt="Priyanshu Ranjan"
               className="w-72 h-72 rounded-full object-cover border-4 border-primary shadow-purple"
             />
             <motion.div
@@ -57,10 +58,10 @@ export function Hero() {
           className="mb-6"
         >
           <h1 className="text-5xl md:text-7xl font-bold font-montserrat text-gradient mb-4">
-            Shrish
+            Priyanshu Ranjan
           </h1>
           <h2 className="text-xl md:text-2xl text-muted-foreground mb-6">
-            AI/ML Enthusiast | Full Stack Developer
+            Aspiring Data Analyst | Full Stack AI Developer
           </h2>
           
           {/* Typing Animation */}
@@ -76,8 +77,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          Hi, I'm Shrish — a 2nd-year Computer Science student at VIT Bhopal with a strong interest in 
-          AI, ML, full stack development, and fintech. I love solving real-world problems through code.
+          Hi, I'm Priyanshu — Computer Science (AI & ML) undergraduate at VIT Bhopal with hands-on experience in Python, SQL, ML, AWS cloud, Google cloud fundamentals, and Databases.
+          Built projects like a Sentiment Analysis Web App and an AI Interview Mentor, focused on applying data and ML skills to real-world problems.
         </motion.p>
 
         {/* Buttons */}
@@ -90,9 +91,12 @@ export function Hero() {
           <Button
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg font-medium shadow-purple hover:shadow-glow transition-all duration-300"
+            asChild
           >
-            <Download className="mr-2 h-5 w-5" />
-            Download Resume
+            <a href={resumePdf} download>
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </a>
           </Button>
           
           <div className="flex gap-4">
@@ -102,7 +106,7 @@ export function Hero() {
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               asChild
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/priyanshuranjan02" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" />
                 GitHub
               </a>
@@ -114,7 +118,7 @@ export function Hero() {
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               asChild
             >
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/priyanshu-ranjan-74170a227" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="mr-2 h-5 w-5" />
                 LinkedIn
               </a>

@@ -6,15 +6,18 @@ import {
   SiReact, 
   SiNodedotjs, 
   SiExpress, 
-  SiFlask, 
-  SiMongodb, 
+  SiFlask,
+  SiMongodb,
+  SiAmazonwebservices,
+  SiGooglecloud,
+  SiFirebase, 
   SiMysql,
   SiScikitlearn,
   SiPandas,
   SiNumpy,
   SiHtml5,
   SiCss3,
-  SiGit
+  SiGithub
 } from 'react-icons/si';
 import { Coffee } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -24,36 +27,36 @@ const skillCategories = [
     title: "Programming Languages",
     skills: [
       { name: "Python", icon: SiPython, color: "#3776AB" },
-      { name: "C++", icon: SiCplusplus, color: "#00599C" },
       { name: "Java", icon: Coffee, color: "#ED8B00" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "SQL", icon: SiMysql, color: "#4479A1" },
+      { name: "C++", icon: SiCplusplus, color: "#00599C" }
     ]
   },
   {
-    title: "Web Development",
-    skills: [
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS3", icon: SiCss3, color: "#1572B6" },
-      { name: "React.js", icon: SiReact, color: "#61DAFB" },
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-      { name: "Express.js", icon: SiExpress, color: "#000000" },
-    ]
-  },
-  {
-    title: "Machine Learning",
+    title: "Machine Learning & Data",
     skills: [
       { name: "Scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
-      { name: "Pandas", icon: SiPandas, color: "#150458" },
-      { name: "NumPy", icon: SiNumpy, color: "#013243" },
+      { name: "Pandas", icon: SiPandas, color: "#3776AB" },
+      { name: "NumPy", icon: SiNumpy, color: "#3776AB" },
+      { name: "GitHub", icon: SiGithub, color: "#F05032" }
     ]
   },
   {
-    title: "Databases & Tools",
+    title: "Databases & Cloud",
     skills: [
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
       { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-      { name: "Flask", icon: SiFlask, color: "#000000" },
-      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "AWS", icon: SiAmazonwebservices, color: "#F05032" },
+      { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
+      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" }
+    ]
+  },
+  {
+    title: "Web & Backend",
+    skills: [
+      { name: "React (basics)", icon: SiReact, color: "#61DAFB" },
+      { name: "Flask", icon: SiFlask, color: "#00D8A0" },
+      { name: "Python (backend)", icon: SiPython, color: "#3776AB" },
+      { name: "AWS (EC2, S3 - basics)", icon: SiAmazonwebservices, color: "#F05032" }
     ]
   }
 ];

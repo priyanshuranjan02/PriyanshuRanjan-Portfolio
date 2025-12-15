@@ -4,28 +4,34 @@ import { Card } from '@/components/ui/card';
 
 const educationData = [
   {
-    institution: "VIT Bhopal University",
-    degree: "B.Tech Computer Science Engineering (AI/ML)",
-    period: "2023 - Present",
-    cgpa: "8.3",
+    institution: "Vellore Institute of Technology, Bhopal",
+    degree: "B.Tech in Computer Science (AI & ML)",
+    period: "2023 – 2027",
+    scoreLabel: "CGPA",
+    scoreValue: "8.3",
     icon: GraduationCap,
-    description: "Specializing in Artificial Intelligence and Machine Learning with focus on practical applications."
+    description:
+      "Focused on Artificial Intelligence and Machine Learning with strong emphasis on Data Structures, Algorithms, Databases, and Software Engineering. Gained hands-on experience through academic projects involving data analysis, ML models, and backend system development."
   },
   {
-    institution: "Resonance International School",
-    degree: "Class 12",
-    period: "2021 - 2023",
-    cgpa: null,
+    institution: "R.B.T Vidyalaya, Deoria",
+    degree: "Senior Secondary Education (Class XII)",
+    period: "2022",
+    scoreLabel: "Percentage",
+    scoreValue: "74%",
     icon: Award,
-    description: "Completed senior secondary education with focus on Physics, Chemistry, and Mathematics."
+    description:
+      "Completed higher secondary education in the Science (Mathematics) stream, developing a strong analytical foundation in mathematics, logical reasoning, and problem-solving, which supports my interest in computer science and data-driven fields."
   },
   {
-    institution: "DAV Public School",
-    degree: "Class 10",
-    period: "2019 - 2021",
-    cgpa: null,
+    institution: "Kendriya Vidyalaya, Deoria",
+    degree: "Secondary Education (Class X)",
+    period: "2020",
+    scoreLabel: "Percentage",
+    scoreValue: "78%",
     icon: Award,
-    description: "Foundation in core subjects with excellent academic performance."
+    description:
+      "Built a strong academic foundation in Mathematics and Science, along with active participation in sports and extracurricular activities that helped develop discipline, teamwork, and time-management skills."
   }
 ];
 
@@ -33,6 +39,8 @@ export function Education() {
   return (
     <section id="education" className="py-20 bg-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,9 +57,11 @@ export function Education() {
           </p>
         </motion.div>
 
+        {/* Education Cards */}
         <div className="space-y-8">
           {educationData.map((edu, index) => {
             const Icon = edu.icon;
+
             return (
               <motion.div
                 key={index}
@@ -62,14 +72,18 @@ export function Education() {
               >
                 <Card className="p-6 md:p-8 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 hover:-translate-y-2">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+
+                    {/* Icon */}
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                         <Icon className="w-8 h-8 text-primary" />
                       </div>
                     </div>
-                    
+
+                    {/* Content */}
                     <div className="flex-grow">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+
                         <div>
                           <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
                             {edu.institution}
@@ -78,20 +92,21 @@ export function Education() {
                             {edu.degree}
                           </p>
                         </div>
-                        
+
                         <div className="text-right">
-                          <div className="flex items-center text-muted-foreground mb-2">
+                          <div className="flex items-center justify-end text-muted-foreground mb-2">
                             <Calendar className="w-4 h-4 mr-2" />
                             <span>{edu.period}</span>
                           </div>
-                          {edu.cgpa && (
-                            <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                              CGPA: {edu.cgpa}
-                            </div>
-                          )}
+
+                          {/* Score */}
+                          <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium inline-block">
+                            {edu.scoreLabel}: {edu.scoreValue}
+                          </div>
                         </div>
+
                       </div>
-                      
+
                       <p className="text-muted-foreground leading-relaxed">
                         {edu.description}
                       </p>
@@ -102,6 +117,7 @@ export function Education() {
             );
           })}
         </div>
+
       </div>
     </section>
   );

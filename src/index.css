@@ -2,92 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+  Design System – Professional Light & Dark Theme
+  All colors are defined in HSL
 */
 
+/* =========================
+   THEME VARIABLES
+========================= */
 @layer base {
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 15%;
 
+  /* 🌞 LIGHT THEME (default) */
+  :root {
+    /* Background & text */
+    --background: 210 40% 98%;
+    --foreground: 222 40% 12%;
+
+    /* Cards & surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 15%;
+    --card-foreground: 222 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 15%;
+    --popover-foreground: 222 40% 12%;
 
-    --primary: 270 95% 75%;
+    /* Primary & accent */
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 20% 92%;
-    --secondary-foreground: 240 10% 15%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 222 40% 12%;
 
-    --muted: 260 10% 95%;
-    --muted-foreground: 240 10% 50%;
+    --muted: 210 25% 92%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 270 95% 75%;
+    --accent: 260 90% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 260 10% 90%;
-    --input: 260 10% 90%;
-    --ring: 270 95% 75%;
+    /* Borders & inputs */
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 210 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Portfolio specific colors */
-    --purple-light: 270 95% 85%;
-    --purple-dark: 270 95% 65%;
-    --purple-accent: 270 100% 80%;
-    --gradient-primary: linear-gradient(135deg, hsl(270 95% 75%), hsl(270 95% 85%));
-    --gradient-dark: linear-gradient(135deg, hsl(240 10% 8%), hsl(250 15% 12%));
-    --shadow-purple: 0 10px 30px -10px hsl(270 95% 75% / 0.3);
-    --shadow-glow: 0 0 40px hsl(270 95% 75% / 0.4);
-    
-    /* Animation variables */
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(210 100% 50%),
+      hsl(260 90% 65%)
+    );
+
+    --gradient-dark: linear-gradient(
+      135deg,
+      hsl(210 40% 96%),
+      hsl(210 30% 90%)
+    );
+
+    /* Shadows */
+    --shadow-blue: 0 10px 30px -10px hsl(210 100% 50% / 0.25);
+    --shadow-glow: 0 0 30px hsl(210 100% 50% / 0.35);
+
+    /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
+  /* 🌙 DARK THEME (Your original design) */
   .dark {
-    --background: 240 10% 8%;
-    --foreground: 0 0% 95%;
+    --background: 222 40% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 250 15% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 225 35% 12%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 250 15% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 225 35% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 270 95% 75%;
-    --primary-foreground: 240 10% 8%;
+    --primary: 210 100% 60%;
+    --primary-foreground: 222 40% 8%;
 
-    --secondary: 250 15% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 225 30% 16%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 250 15% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 225 20% 18%;
+    --muted-foreground: 220 15% 70%;
 
-    --accent: 270 95% 75%;
-    --accent-foreground: 240 10% 8%;
+    --accent: 260 90% 70%;
+    --accent-foreground: 222 40% 8%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 250 15% 18%;
-    --input: 250 15% 18%;
-    --ring: 270 95% 75%;
+    --border: 225 25% 20%;
+    --input: 225 25% 20%;
+    --ring: 210 100% 60%;
 
-    /* Dark mode purple variants */
-    --purple-light: 270 95% 75%;
-    --purple-dark: 270 95% 65%;
-    --purple-accent: 270 100% 80%;
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(210 100% 60%),
+      hsl(260 90% 70%)
+    );
+
+    --gradient-dark: linear-gradient(
+      135deg,
+      hsl(222 40% 6%),
+      hsl(225 35% 12%)
+    );
+
+    --shadow-blue: 0 10px 30px -10px hsl(210 100% 60% / 0.35);
+    --shadow-glow: 0 0 40px hsl(210 100% 60% / 0.45);
   }
 }
 
+/* =========================
+   BASE STYLES
+========================= */
 @layer base {
   * {
     @apply border-border;
@@ -103,6 +135,9 @@ All colors MUST be HSL.
   }
 }
 
+/* =========================
+   UTILITIES
+========================= */
 @layer utilities {
   .text-gradient {
     background: var(--gradient-primary);
@@ -111,8 +146,16 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
-  .shadow-purple {
-    box-shadow: var(--shadow-purple);
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .shadow-blue {
+    box-shadow: var(--shadow-blue);
   }
 
   .shadow-glow {
@@ -125,13 +168,5 @@ All colors MUST be HSL.
 
   .transition-bounce {
     transition: var(--transition-bounce);
-  }
-
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
-
-  .gradient-dark {
-    background: var(--gradient-dark);
   }
 }

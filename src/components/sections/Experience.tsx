@@ -1,46 +1,100 @@
 import { motion } from 'framer-motion';
-import { Building, Users, Calendar, Award } from 'lucide-react';
+import { Building, Users, Calendar, Award, Trophy,Medal, Cpu } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { ExternalLink } from "lucide-react";
+import reportPdf from "@/assets/VITB Experiential Learning Report (23BAI10691).pdf";
+import { FileText } from "lucide-react";
+import {
+  SiAmazonwebservices,
+  SiOracle,
+  SiCoursera
+} from "react-icons/si";
 
 const experiences = [
   {
-    role: "Event Management Head",
-    organization: "Robotics Club, VIT Bhopal",
-    period: "2023 - Present",
-    type: "Leadership Role",
-    icon: Building,
+    role: "Experiential Learning Program",
+    organization: "VIT Bhopal University, Bhopal",
+    period: "2 Weeks (Oct - Nov 2025)",
+    type: "Industry Program",
+    icon: Cpu,
     responsibilities: [
-      "Managed technical and non-technical events for the robotics club",
-      "Promoted collaboration and team-building among club members",
-      "Coordinated workshops and competitions to enhance student engagement",
-      "Led a team of volunteers to organize successful events"
+      "Built and programmed a 4WD smart robot car using Raspberry Pi Pico and ESP8266",
+      "Interfaced ultrasonic sensors, DC motors, and motor drivers for real-time control",
+      "Implemented wireless control and basic automation logic",
+      "Performed debugging, testing, and hardware troubleshooting"
     ],
     achievements: [
-      "Successfully organized 5+ major events with 200+ participants",
-      "Improved club membership by 40% through engaging activities",
-      "Established partnerships with other technical clubs"
-    ]
+      "Successfully assembled and demonstrated a working IoT-enabled bot",
+      "Gained hands-on exposure to embedded systems and hardware-software integration",
+      "Received positive evaluation from industry instructors"
+    ],
+    reportLink: reportPdf
   }
 ];
 
 const achievements = [
   {
-    title: "Zonal Rank 1",
-    description: "19th SOF National Science Olympiad",
-    icon: Award,
-    details: "Achieved first position at zonal level in the prestigious Science Olympiad"
+    title: "Naukri Campus Young Turks",
+    organizer: "Naukri Campus",
+    year: "2025",
+    description:
+      "Scored 99.82 percentile in Young Turks 2025 (India's Largest Skill Contest).",
+    icon: Medal
   },
   {
-    title: "International Rank 4726",
-    description: "19th SOF National Science Olympiad",
-    icon: Users,
-    details: "Secured impressive international ranking among thousands of participants"
+    title: "National Financial Literacy Quiz",
+    organizer: "NISM (SEBI)",
+    year: "2025",
+    description:
+      "Participated in the NFLQ (Online Round) conducted by NISM, SEBI. Scored 15/15.",
+    icon: Trophy
   },
   {
-    title: "Gold Medalist",
-    description: "Science Olympiad Achievement",
+    title: "TCS CodeVita 2025",
+    organizer: "Tata Consultancy Services (TCS)",
+    year: "2025",
+    description:
+      "Qualified TCS CodeVita 2025 with strong national ranks — AIR 9353 in Round 1 and AIR 1205 in Round 2.",
+    icon: Trophy
+  }
+];
+
+const certifications = [
+  {
+    title: "Applied Machine Learning in Python",
+    provider: "Coursera",
+    icon: SiCoursera,
+    color: "#0056D2",
+    link: "https://drive.google.com/file/d/1oGPX2QN48P9VSdACxRIXUNeWYFOdmFct/view?usp=sharing",
+    year: 2025,
+    description: "Hands-on machine learning using Python"
+  },
+  {
+    title: "Oracle OCI Data Science Professional",
+    provider: "Oracle",
+    icon: SiOracle,
+    color: "#F80000",
+    link: "https://drive.google.com/file/d/1G1LONmntI9R338BRQb-fikDHeLD75EAp/view?usp=sharing",
+    year: 2025,
+    description: "Data science workflows on Oracle Cloud Infrastructure"
+  },
+  {
+    title: "AWS Technical Essentials",
+    provider: "Amazon Web Services",
+    icon: SiAmazonwebservices,
+    color: "#FF9900",
+    link: "https://drive.google.com/file/d/15X-DdfwqxuIUoy5V5b5rbC0IWnYnpIkW/view?usp=sharing",
+    year: 2025,
+    description: "Core AWS services and cloud fundamentals"
+  },
+  {
+    title: "Cloud Computing",
+    provider: "NPTEL",
     icon: Award,
-    details: "Awarded gold medal for exceptional performance in science competition"
+    color: "#22C55E",
+    link: "https://drive.google.com/file/d/1gaXdIq5K9KuCDHc8ikXrPNXHuujQQOSq/view?usp=sharing",
+    year: 2025,
+    description: "Cloud architecture, virtualization, service models, and distributed systems"
   }
 ];
 
@@ -60,7 +114,7 @@ export function Experience() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            My leadership experience and notable achievements in academics and competitions
+            My industry experience and notable achievements in academics and competitions
           </p>
         </motion.div>
 
@@ -73,7 +127,7 @@ export function Experience() {
             viewport={{ once: true }}
             className="text-2xl font-bold text-foreground mb-8"
           >
-            Professional Experience
+            Industry Experience
           </motion.h3>
           
           {experiences.map((exp, index) => {
@@ -110,8 +164,11 @@ export function Experience() {
                             <Calendar className="w-4 h-4 mr-2" />
                             <span>{exp.period}</span>
                           </div>
-                          <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                            {exp.type}
+                          <div className="inline-flex items-center px-4 py-1.5 rounded-full
+                            bg-primary/10 text-primary
+                            text-sm font-semibold
+                            border border-primary/30">
+                            Industry Program
                           </div>
                         </div>
                       </div>
@@ -139,6 +196,20 @@ export function Experience() {
                           ))}
                         </ul>
                       </div>
+                      {/* Report Link */}
+                      {exp.reportLink && (
+                        <div className="mt-6">
+                          <a
+                            href={exp.reportLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                          >
+                            <FileText className="w-4 h-4" />
+                            View Report
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -148,79 +219,145 @@ export function Experience() {
         </div>
 
         {/* Achievements Section */}
-        <div>
-          <motion.h3
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold text-foreground mb-8"
-          >
-            Notable Achievements
-          </motion.h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => {
-              const Icon = achievement.icon;
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-10 text-center">
+            Achievements
+          </h3>
+
+          {/* FORCE 3 IN ONE ROW */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {achievements.map((item, index) => {
+              const Icon = item.icon;
+            
               return (
                 <motion.div
-                  key={index}
+                  key={item.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -6 }}
+                  className="group"
                 >
-                  <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 text-center h-full">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
+                  <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300 h-full text-center">
+
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
-                    
-                    <h4 className="text-lg font-bold text-foreground mb-2">
-                      {achievement.title}
+              
+                    <h4 className="text-lg font-bold text-foreground mb-1">
+                      {item.title}
                     </h4>
-                    
-                    <p className="text-primary font-medium mb-3">
-                      {achievement.description}
+              
+                    <p className="text-primary font-medium mb-2">
+                      {item.organizer}
                     </p>
-                    
-                    <p className="text-sm text-muted-foreground">
-                      {achievement.details}
+              
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {item.description}
                     </p>
+              
+                    <span className="text-xs font-semibold text-muted-foreground">
+                      {item.year}
+                    </span>
                   </Card>
                 </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
+
 
         {/* Certifications */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <h3 className="text-2xl font-bold text-foreground mb-8">Certifications</h3>
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="mt-20"
+      >
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-10 text-center">
+          Certifications
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {certifications.map((cert, index) => {
+            const Icon = cert.icon;
           
-          <Card className="p-6 bg-card border-border shadow-lg hover:shadow-purple transition-all duration-300">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              
-              <div>
-                <h4 className="text-lg font-bold text-foreground">
-                  Unsupervised Learning, Recommenders & Reinforcement Learning
-                </h4>
-                <p className="text-primary font-medium">Stanford Online (Coursera)</p>
-                <p className="text-sm text-muted-foreground">Completed with verified certificate and badge</p>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-      </div>
+            return (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                className="group"
+              >
+                <Card className="relative p-6 bg-card border-border transition-all duration-300 h-full">
+            
+                  {/* Link Icon */}
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-4 right-4 text-muted-foreground hover:text-primary transition-colors"
+                    aria-label="View Certificate"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+            
+                  <div className="flex items-start gap-5">
+                    {/* Provider Icon */}
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
+                      style={{ backgroundColor: `${cert.color}20` }}
+                    >
+                      <Icon
+                        className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+                        style={{ color: cert.color }}
+                      />
+                    </div>
+            
+                    {/* Text */}
+                    <div>
+                      <h4 className="text-lg font-bold text-foreground mb-1">
+                        {cert.title}
+                      </h4>
+            
+                      <p className="text-primary font-medium">
+                        {cert.provider}
+                      </p>
+            
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {cert.description}
+                      </p>
+            
+                      <span className="inline-block text-xs font-semibold text-muted-foreground">
+                        {cert.year}
+                      </span>
+                    </div>
+                  </div>
+            
+                  {/* Hover Glow */}
+                  <div
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{ boxShadow: `0 0 30px ${cert.color}55` }}
+                  />
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div> {/* Certifications end */}
+    </div>
+  {/* max-w-7xl */}
     </section>
   );
 }

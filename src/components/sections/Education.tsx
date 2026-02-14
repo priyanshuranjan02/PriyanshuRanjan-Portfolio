@@ -8,7 +8,7 @@ const educationData = [
     degree: "B.Tech in Computer Science (AI & ML)",
     period: "2023 – 2027",
     scoreLabel: "CGPA",
-    scoreValue: "8.3",
+    scoreValue: "8.36",
     icon: GraduationCap,
     description:
       "Focused on Artificial Intelligence and Machine Learning with strong emphasis on Data Structures, Algorithms, Databases, and Software Engineering. Gained hands-on experience through academic projects involving data analysis, ML models, and backend system development."
@@ -28,7 +28,7 @@ const educationData = [
     degree: "Secondary Education (Class X)",
     period: "2020",
     scoreLabel: "Percentage",
-    scoreValue: "78%",
+    scoreValue: "78.8%",
     icon: Award,
     description:
       "Built a strong academic foundation in Mathematics and Science, along with active participation in sports and extracurricular activities that helped develop discipline, teamwork, and time-management skills."

@@ -4,7 +4,7 @@ import { TypingAnimation } from '@/components/TypingAnimation';
 import { ParticleBackground } from '@/components/Particles';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/my-profileImage.png';
-import resumePdf from "@/assets/Priyanshu Ranjan - Tech Resume.pdf";
+import resumePdf from "@/assets/Priyanshu Ranjan - Resume.pdf";
 
 const typingTexts = [
   'Aspiring Data Analyst',
